@@ -1,5 +1,8 @@
 package com.glc;
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
 
 import org.junit.Test;
 
@@ -42,7 +45,7 @@ public class BookAPITesting {
         int list = 4;
         Book bookObject1 = new Book("The Hobbit", "J.R.R. Tolkein", 320, 1937);
         Book bookObject2 = new Book("The History", "Ozaib", 320, 1937);
-        Book bookObject3 = new Book("The Math", "Hunaid. Tolkein", 320, 1937);
+        Book bookObject3 =  new Book("The Hobbit", "J.R.R. Tolkein", 320, 1937);
         Book bookObject4 = new Book("The Science", "Eienstien. Tolkein", 320, 1937);
         ReadingList readingObject = new ReadingList();
 
@@ -63,7 +66,6 @@ public class BookAPITesting {
         //setup
         String title = "The History";
         
-
         Book bookObject1 = new Book("The Hobbit", "J.R.R. Tolkein", 320, 1937);
         Book bookObject2 = new Book("The History", "Ozaib", 320, 1937);
         Book bookObject3 = new Book("The Math", "Hunaid. Tolkein", 320, 1937);
@@ -88,6 +90,24 @@ public class BookAPITesting {
         assertEquals(length, result);
     }
 
+    //Given that I have an empty list, when I add a new book I expect getBooks() to return a list of books that includes the book I added.
+    @Test
+    public void returnListTest(){
+        //setup
+        ReadingList readingObject = new ReadingList();
+        ArrayList<String> list = readingObject.getBooks();
 
+        //execute
+        Book bookObject1 = new Book("The Hobbit", "J.R.R. Tolkein", 320, 1937);
+        // Book bookObject2 = new Book("The History", "Ozaib", 320, 1937);
+
+        readingObject.addBook(bookObject1, "January 1, 2020", 5);
+
+        ArrayList<String> result = readingObject.getBooks();
+
+
+        //Assert
+        assertEquals(bookObject1.toString(), result.get(0));
+    }
 
 }
