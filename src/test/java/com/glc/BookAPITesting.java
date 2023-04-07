@@ -3,6 +3,7 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -115,7 +116,7 @@ public class BookAPITesting {
         //setup
         String rating = "*****";
 
-        ArrayList<String> bookList = new ArrayList<String>();
+        List<String> bookList = new ArrayList<String>();
         Book testBookObject1 = new Book("The Hobbit", "J.R.R. Tolkein", 320, 1937);
         Book testBookObject2 = new Book("The Math", "Hunaid. Tolkein", 320, 1937);
 
@@ -137,7 +138,7 @@ public class BookAPITesting {
         readingObject.addBook(bookObject3, "January 3, 2020", 5);
         readingObject.addBook(bookObject4, "January 4, 2020", 3);
 
-        ArrayList<String> result = readingObject.getBooksByRating(rating);
+        List<String> result = readingObject.getBooksByRating(rating);
 
         //Assert
         assertArrayEquals(bookList, result);

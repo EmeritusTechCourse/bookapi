@@ -1,6 +1,7 @@
 package com.glc;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ReadingList {
 
@@ -36,6 +37,20 @@ public class ReadingList {
 
     public ArrayList<String> getBooks() {
         return bookList;
+    }
+
+    public List<String> getBooksByRating(String rating) {
+
+        ArrayList<String> tempList = new ArrayList<String>();
+
+        for (int index = 0; index < bookList.size(); index++) {
+            String firstElement = bookList.get(index);
+
+            if(firstElement.contains(rating)){
+                tempList.add(bookList.get(index));
+            }
+        }
+        return tempList;
     }
 
 }
