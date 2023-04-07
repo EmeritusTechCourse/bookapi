@@ -95,7 +95,7 @@ public class BookAPITesting {
     public void returnListTest(){
         //setup
         ReadingList readingObject = new ReadingList();
-        ArrayList<String> list = readingObject.getBooks();
+        String entry = "The HobbitbyJ.R.R. Tolkein,320pages,read onJanuary 1, 2020 *****";
 
         //execute
         Book bookObject1 = new Book("The Hobbit", "J.R.R. Tolkein", 320, 1937);
@@ -107,7 +107,7 @@ public class BookAPITesting {
 
 
         //Assert
-        assertEquals(bookObject1.toString(), result.get(0));
+        assertEquals(entry, result.get(0));
     }
 
 }

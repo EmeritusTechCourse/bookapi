@@ -10,7 +10,7 @@ public class ReadingList {
         //int length = bookList.length;
 
         String ratingStar = "";
-        for (int i = 0; i < rating-1; i++) {
+        for (int i = 0; i < rating; i++) {
             ratingStar += "*"; 
         }
         bookList.add(obj.title + "by" + obj.author +"," + obj.length + "pages," + "read on" + dateRead + " "+ ratingStar) ;
@@ -29,8 +29,13 @@ public class ReadingList {
     }
 
 
+
     public int numberRead(){
         return bookList.size();
+    }
+
+    public ArrayList<String> getBooks() {
+        return bookList;
     }
 
 }
