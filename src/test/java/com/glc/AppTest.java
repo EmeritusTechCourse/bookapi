@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 // import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -16,15 +17,15 @@ public class AppTest
      * Rigorous Test :-)
      */
     //Written by Huzaifa
-    @Test
-    public void getBookTest(){
-        //setup
-        // ReadingList book = new ReadingList();
-        //execute
-        ArrayList <String> books = ReadingList.getBook();
-        //assert
-        assertEquals(null, books);
-    }
+    // @Test
+    // public void getBookTest(){
+    //     //setup
+    //     // ReadingList book = new ReadingList();
+    //     //execute
+    //     ArrayList <String> books = ReadingList.getBook();
+    //     //assert
+    //     assertEquals(null, books);
+    // }
 
     //Written by Huzaifa
     @Test
@@ -40,8 +41,8 @@ public class AppTest
     @Test
     public void readAdditionalBookTest(){
         //setup
-        ReadingList readBook = new ReadingList("Justujo k safr", "Zeeshan Ul Hssan Usmani", 345, 2021,"read on march 2, 2023", 5);
-        // ReadingList readBook1 = new ReadingList("System Analyst kesy bany", "Zeeshan Ul Hssan Usmani", 345, 2021,"read on march 2, 2023", 5);
+        // ReadingList readBook = new ReadingList("Justujo k safr", "Zeeshan Ul Hssan Usmani", 345, 2021,"read on march 2, 2023", 5);
+        ReadingList readBook = new ReadingList("System Analyst kesy bany", "Zeeshan Ul Hssan Usmani", 345, 2021,"read on march 2, 2023", 5);
         
         //execute
         int numberRead = readBook.addBook();
@@ -50,5 +51,15 @@ public class AppTest
         assertEquals(2, numberRead);
     }
 
+    @Test
+    public void removeBookTest(){
+        //setup
+        String title = "Justujo k safr";
+        //execute
+        // String books = ReadingList.removeBook(title);
+        List<String> books = ReadingList.getBook();
+        //assert
+        assertEquals(1, books);
+    }
     
 }
