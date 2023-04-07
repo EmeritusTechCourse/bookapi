@@ -1,6 +1,5 @@
 package com.glc;
 
-//Written by Huzaifa
 public class Book {
     String title, author; 
     int length, year;
