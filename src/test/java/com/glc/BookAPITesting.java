@@ -102,12 +102,46 @@ public class BookAPITesting {
         // Book bookObject2 = new Book("The History", "Ozaib", 320, 1937);
 
         readingObject.addBook(bookObject1, "January 1, 2020", 5);
-
         ArrayList<String> result = readingObject.getBooks();
-
 
         //Assert
         assertEquals(entry, result.get(0));
     }
+
+    //Given when I call getBooksByRating(), I should return a list of books that all have that rating.
+
+    @Test
+    public void returnBooksByRatingTest(){
+        //setup
+        String rating = "*****";
+
+        ArrayList<String> bookList = new ArrayList<String>();
+        Book testBookObject1 = new Book("The Hobbit", "J.R.R. Tolkein", 320, 1937);
+        Book testBookObject2 = new Book("The Math", "Hunaid. Tolkein", 320, 1937);
+
+
+        bookList.add( "The Hobbit, J.R.R. Tolkein, 320, 1937 January 1, 2020, *****");
+        bookList.add( "The Math, Hunaid. Tolkein, 320, 1937 January 1, 2020, *****");
+
+
+        //execute
+        Book bookObject1 = new Book("The Hobbit", "J.R.R. Tolkein", 320, 1937);
+        Book bookObject2 = new Book("The History", "Ozaib", 320, 1937);
+        Book bookObject3 = new Book("The Math", "Hunaid. Tolkein", 320, 1937);
+        Book bookObject4 = new Book("The Science", "Eienstien. Tolkein", 320, 1937);
+        
+        ReadingList readingObject = new ReadingList();
+
+        readingObject.addBook(bookObject1, "January 1, 2020", 5);
+        readingObject.addBook(bookObject2, "January 2, 2020", 4);
+        readingObject.addBook(bookObject3, "January 3, 2020", 5);
+        readingObject.addBook(bookObject4, "January 4, 2020", 3);
+
+        ArrayList<String> result = readingObject.getBooksByRating(rating);
+
+        //Assert
+        assertArrayEquals(bookList, result);
+    }
+
 
 }
